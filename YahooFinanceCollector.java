@@ -1,10 +1,14 @@
+/**
+ * A program to download the historical stock data given a list of stock symbols, start and end date.
+ */
+
 import java.net.*;
 import java.io.*;
 import java.util.*;
 import org.json.simple.*;
 import org.json.simple.parser.*;
 
-public class YFCollector {
+public class YahooFinanceCollector {
     class Quote implements Comparable<Quote> {
 	public String symbol, date;
 	public double open, high, low, close, adjustClose;
@@ -87,7 +91,7 @@ public class YFCollector {
     }
 
     public static void main(String[] args) {
-	YFCollector yfc = new YFCollector();
+	YahooFinanceCollector yfc = new YahooFinanceCollector();
 	String[] symbols = new String[] {"GOOG", "MSFT"};
 	List<Quote> quotes = yfc.getQuotes(symbols, "2016-08-01", "2016-08-10");
 	for (Quote q : quotes) {
